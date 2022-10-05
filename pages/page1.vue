@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h1>List page</h1>
+		<button v-on:click="buttonEvent()">SamplueButton</button>
 		<button v-on:click="moveIndex()">indexへ移動($router.push)</button>
 		<div>search</div>
 		<infinite-loading @infinite="load">
@@ -18,7 +19,6 @@ const router = useRouter();
 const mounted = ref(false);
 const load = async ($state) => {
 	try {
-		// const data = await fetchLikedTweets('4179070632', nextToken.value);
 		$state.complete();
 	} catch (error) {
 		$state.error();
@@ -26,6 +26,9 @@ const load = async ($state) => {
 	}
 };
 
+const buttonEvent = async () => {
+	alert('Clicked button');
+};
 const moveIndex = async () => {
 	return navigateTo({
 		path: '/',
